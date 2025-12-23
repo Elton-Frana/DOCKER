@@ -70,6 +70,24 @@ OS VOLUMES DO CRIADOS NO DOCKER FICAM EM:
 # docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
 # docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu
 
+DOCKER COMPOSE
+Ferramenta do docker para criar containers e rodar múltiplos containers como um projeto, usando um arquivo YAML.
+
+✔️ Características
+Você descreve toda a stack no arquivo docker-compose.yml.
+Sobe vários serviços com um comando.
+Gerencia dependências entre serviços (ex: servidor → banco de dados).
+Facilita subir, parar e atualizar ambientes completo
+
+INSTALANDO DOCKER COMPOSE
+# apt install -y docker-compose-plugin      (Com o docker ja instalado rodar esse comando para instalar o docker compose)
+# docker compose version                    (Ver versao do docker compose)
+# docker compose up -d                      (Comando para rodar docker compose)
+
+Criar um arquivo .yml 
+
+
+
 
 
 
