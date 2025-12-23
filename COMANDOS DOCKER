@@ -1,0 +1,75 @@
+DESCOMPLICANDO DOCKER 
+
+TEORIA 
+
+Container dentro de um sistema operacional como o Debian faz isolamentos, quando você roda um contêiner la dentro você isola a parte lógica e física necessária para aquele container , 
+assim quando você cria outro contêiner ele não tem acesso aos recursos dos outros contêineres existentes .
+Apenas o servidor debian a máquina hospedeira consegue ver os processos e recursos em geral de tudo .
+O contêiner utiliza o kernel do sistema operacional do host onde ele tá rodando se tiver 10 contêiner rodando os 10 usam o mesmo kernel do host.
+Todas as regras de rede no docker são feitas via netfilter, Iptables , filtro de pacotes redirecionamento ( dnat snat etc ).
+
+Docker : é uma solução de execução dos contêineres , Disponibilizado em meados de 2013.
+Imagem de Contêiner : Tem várias Camadas somente a última camada você pode escrever read write ( leitura e escrita  ) as outras camadas abaixo é só leitura .
+
+Logica: Usuários, Processos, Rede Ponto de Montagem.
+Física: Dedicar Recursos: CPU MEM RAM DISCO.
+
+
+INSTALANDO O DOCKER
+
+# curl -sSL https://get.docker.com | sh
+# docker --version
+# systemctl status docker.service
+
+CONTAINER ID → IDENTIFICAÇÃO DO CONTAINER .
+IMAGE → IMAGEN QUE O CONTAINER ESTA UTILIZANDO .
+COMMAND → COMANDO QUE O CONTAINER ESTA RODANDO EXEMPLO /BIN/BASH .
+CREATED → QUANTO TEMPO O CONTAINER FOI CRIADO .
+STATUS → SE O CONTAINER ESTA RODANDO UPTIME .
+PORTS → INFORMAÇÔES REFERENTE AS PORTAS .
+NAMES → NOME DO CONTAINER
+
+COMANDOS DOCKER
+
+# docker container ls -a                      (Ver todos os container que estão em execução).
+# docker images ls                            (VER IMAGENS QUE ESTÃO NA MAQUINA).
+# docker search nome_da_imagem                (PROCURAR IMAGEM NO DOCKER HUB).
+# docker pull nome_da_imagem                  (BAIXAR IMAGEM P/ REPOSITÓRIO. LOCAL).
+# docker container attach id_do_container     (ENTRAR NO CONTAINER).
+# docker container stop id_do_container       (PARAR O CONTAINER).
+# docker container start id_do_container      (INICIAR O CONTAINER).
+# docker container restart id_do_container    (RESTARTAR CONTAINER).
+# docker container inspect id_do_container    (INSPECIONAR O CONTAINER).
+# docker container logs -f id_do_container    (CAPTURAR LOGS DE UM CONTAINER).
+# docker container stats id_do_container      (VER ESTATÍSTICAS DE CPU MEM I/O DE REDE I/O DE DISCO).
+# docker container top id_do_container        (VER PROCESSOS QUE ESTÃO EM EXECUÇÃO NO CONTAINER).
+# docker container rm -f id_do_container      (Remover um container).
+# docker container prune                      (remove todos os container que não estão em execução).
+
+
+VOLUMES GERENCIAMENTO DE IMAGENS 
+
+VOLUME: É uma forma de colocar um filesystem para dentro de um container (compartilhamento).
+
+TIPOS DE VOLUME 
+
+Tipo bind
+Criar um volume no /opt/giropops e carregar ele na / do container do debian, os arquivos criados dentro no volume não serão perdidos
+Quando o container é finalizado. 
+
+# docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops debian
+
+Tipo volume
+OS VOLUMES DO CRIADOS NO DOCKER FICAM EM:
+# /var/lib/docker/volumes
+# /var/lib/docker/volumes/giropops/_data
+
+# docker volume create giropops
+# docker volume ls
+# docker volume inspect giropops
+# docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
+# docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu
+
+
+
+
