@@ -17,9 +17,9 @@ Física: Dedicar Recursos: CPU MEM RAM DISCO.
 
 INSTALANDO O DOCKER
 
-# curl -sSL https://get.docker.com | sh
-# docker --version
-# systemctl status docker.service
+#️⃣ curl -sSL https://get.docker.com | sh
+#️⃣ docker --version
+#️⃣ systemctl status docker.service
 
 CONTAINER ID → IDENTIFICAÇÃO DO CONTAINER .
 IMAGE → IMAGEN QUE O CONTAINER ESTA UTILIZANDO .
@@ -31,20 +31,20 @@ NAMES → NOME DO CONTAINER
 
 COMANDOS DOCKER
 
-# docker container ls -a                      (Ver todos os container que estão em execução).
-# docker images ls                            (VER IMAGENS QUE ESTÃO NA MAQUINA).
-# docker search nome_da_imagem                (PROCURAR IMAGEM NO DOCKER HUB).
-# docker pull nome_da_imagem                  (BAIXAR IMAGEM P/ REPOSITÓRIO. LOCAL).
-# docker container attach id_do_container     (ENTRAR NO CONTAINER).
-# docker container stop id_do_container       (PARAR O CONTAINER).
-# docker container start id_do_container      (INICIAR O CONTAINER).
-# docker container restart id_do_container    (RESTARTAR CONTAINER).
-# docker container inspect id_do_container    (INSPECIONAR O CONTAINER).
-# docker container logs -f id_do_container    (CAPTURAR LOGS DE UM CONTAINER).
-# docker container stats id_do_container      (VER ESTATÍSTICAS DE CPU MEM I/O DE REDE I/O DE DISCO).
-# docker container top id_do_container        (VER PROCESSOS QUE ESTÃO EM EXECUÇÃO NO CONTAINER).
-# docker container rm -f id_do_container      (Remover um container).
-# docker container prune                      (remove todos os container que não estão em execução).
+#️⃣ docker container ls -a                      (Ver todos os container que estão em execução).
+#️⃣ docker images ls                            (VER IMAGENS QUE ESTÃO NA MAQUINA).
+#️⃣ docker search nome_da_imagem                (PROCURAR IMAGEM NO DOCKER HUB).
+#️⃣ docker pull nome_da_imagem                  (BAIXAR IMAGEM P/ REPOSITÓRIO. LOCAL).
+#️⃣ docker container attach id_do_container     (ENTRAR NO CONTAINER).
+#️⃣ docker container stop id_do_container       (PARAR O CONTAINER).
+#️⃣ docker container start id_do_container      (INICIAR O CONTAINER).
+#️⃣ docker container restart id_do_container    (RESTARTAR CONTAINER).
+#️⃣ docker container inspect id_do_container    (INSPECIONAR O CONTAINER).
+#️⃣ docker container logs -f id_do_container    (CAPTURAR LOGS DE UM CONTAINER).
+#️⃣ docker container stats id_do_container      (VER ESTATÍSTICAS DE CPU MEM I/O DE REDE I/O DE DISCO).
+#️⃣ docker container top id_do_container        (VER PROCESSOS QUE ESTÃO EM EXECUÇÃO NO CONTAINER).
+#️⃣ docker container rm -f id_do_container      (Remover um container).
+#️⃣ docker container prune                      (remove todos os container que não estão em execução).
 
 
 VOLUMES GERENCIAMENTO DE IMAGENS 
@@ -57,18 +57,18 @@ Tipo bind
 Criar um volume no /opt/giropops e carregar ele na / do container do debian, os arquivos criados dentro no volume não serão perdidos
 Quando o container é finalizado. 
 
-# docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops debian
+#️⃣ docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops debian
 
 Tipo volume
 OS VOLUMES DO CRIADOS NO DOCKER FICAM EM:
-# /var/lib/docker/volumes
-# /var/lib/docker/volumes/giropops/_data
+#️⃣ /var/lib/docker/volumes
+#️⃣ /var/lib/docker/volumes/giropops/_data
 
-# docker volume create giropops
-# docker volume ls
-# docker volume inspect giropops
-# docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
-# docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu
+#️⃣ docker volume create giropops
+#️⃣ docker volume ls
+#️⃣ docker volume inspect giropops
+#️⃣ docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
+#️⃣ docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu
 
 DOCKER COMPOSE
 Ferramenta do docker para criar containers e rodar múltiplos containers como um projeto, usando um arquivo YAML.
@@ -80,9 +80,9 @@ Gerencia dependências entre serviços (ex: servidor → banco de dados).
 Facilita subir, parar e atualizar ambientes completo
 
 INSTALANDO DOCKER COMPOSE
-# apt install -y docker-compose-plugin      (Com o docker ja instalado rodar esse comando para instalar o docker compose)
-# docker compose version                    (Ver versao do docker compose)
-# docker compose up -d                      (Comando para rodar docker compose)
+#️⃣ apt install -y docker-compose-plugin      (Com o docker ja instalado rodar esse comando para instalar o docker compose)
+#️⃣ docker compose version                    (Ver versao do docker compose)
+#️⃣ docker compose up -d                      (Comando para rodar docker compose)
 
 Criar um arquivo .yml 
 
